@@ -35,7 +35,7 @@ public class Character : MonoBehaviour {
 		isGrounded = Physics.CheckSphere(transform.position, controller.skinWidth * 1.10f, groundMask, QueryTriggerInteraction.Ignore);
 		if (isGrounded) {
 			if (velocity.y < 0) {
-				velocity.y = Physics.gravity.y / 2;
+				velocity.y = Physics.gravity.y * Time.deltaTime;
 
 				if (midairJumps != maxMidairJumps) {
 					midairJumps = maxMidairJumps;
